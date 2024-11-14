@@ -1,0 +1,20 @@
+{
+  "name": "books",
+  "version": "1.0.0",
+  "description": "websites for reading different books",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "nodejs",
+    "tailwind",
+    "css"
+  ],
+  "author": "vinay motapalukula",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
