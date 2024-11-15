@@ -1,13 +1,14 @@
 const express = require('express');
+const connectDB = require('./models/books')
 const app = express();
 
 
-app.use("/",(req,res)=>{
-    res.send("Hi,welcome tt to the books world")
-})
 
-
-
-app.listen(3000,()=>{
-    console.log("Server listing successfully on port 3000")
-})
+connectDB().then(()=>{
+    console.log("Database connection established");
+    app.listen(3000,()=>{
+        console.log("3000 port is listening")
+    })
+}).catch((err)=>{
+    console.error("Database is not connected");
+});
