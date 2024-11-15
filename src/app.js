@@ -1,6 +1,22 @@
 const express = require('express');
-const connectDB = require('./models/books')
+const connectDB = require('./config/database')
 const app = express();
+const Book = require("./models/books")
+
+app.use(express.json())
+
+
+app.post("/book", async(req,res)=>{
+    const book = new Book(req.body)
+
+    try{
+        await book.save();
+        res.send("Book added successfully")
+    }
+    catch(err){
+        res.status(400).send("Book failed to add")
+    }
+})
 
 
 

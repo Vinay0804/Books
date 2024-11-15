@@ -1,7 +1,27 @@
 const mongoose = require('mongoose');
-const connectDB = async ()=> {
-    await mongoose.connect("mongodb+srv://vinayMotapalukula:yuYzZrfRXFnv5Fyy@nodejsproject.cx6rw.mongodb.net/project10")
- };
- 
- module.exports = connectDB;
- 
+
+const bookSchema = new mongoose.Schema({
+    bookName :{
+        type : String,
+        required : true,
+        minlength
+    },
+    author :{
+        type : String,
+        required : true
+    },
+    description :{
+        type : String,
+        default : "This is a description of the book"
+    },
+    pages_count :{
+        type : Number
+    },
+    publicationYear :{
+        type : Number
+    }
+})
+
+const Book = mongoose.model("Book",bookSchema)
+
+module.exports = Book;
