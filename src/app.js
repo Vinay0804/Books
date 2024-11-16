@@ -26,7 +26,19 @@ app.post("/book", async(req,res)=>{
         res.status(400).send(err.message);
     }
 })
+app.get("/books/feed",async(req,res)=>{
+    try{
+        const books = await  Book.find({})
+        if(books.length==0){
+            throw new Error("There is no books to view")
+        }
+        res.send(books)
 
+    }
+    catch(err){
+        res.send(err.message)
+    }
+})
 app.patch("/book/:id",async (req,res)=>{
     try{
         const id = req.params.id;
